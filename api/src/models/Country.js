@@ -42,7 +42,10 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER
 
     }
-  });
+  },{
+    createdAt: false,
+    updatedAt: false,
+    });
 
   sequelize.define('turistico', {
     name:{
@@ -62,5 +65,8 @@ module.exports = (sequelize) => {
       
 
     }
-  });
+  },{
+    createdAt: false,
+    updatedAt: false,
+    });
 };

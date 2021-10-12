@@ -12,7 +12,7 @@ router.get("/", async (req, res, next) => {
     try {
 
         const country = (await axios(`https://restcountries.com/v3/all`)).data
-    
+
         country?.forEach(async e => {
             const {
                 name,
@@ -21,29 +21,29 @@ router.get("/", async (req, res, next) => {
                 area,
                 population,
             } = e;
-    
+
             await Country?.findOrCreate({
                 where: {
                     name: name.common,
                     imagen: flags[0],
                     continente: region,
                     subregion: e?.subregion ? e.subregion : "no tiene subregion",
-                    poblacion: population,
-                    area: area,
+                    poblacion: parseInt(population),
+                    area: parseFloat(area),
                     capital: e?.capital ? e.capital[0] : "No tiene capital"
-    
+
                 }
-                
+
             })
-    
+
             Country.findAll()
-            .then(dbCountries => {
-                res.status(200).send(dbCountries)
-            })
-            
-    
+                .then(dbCountries => {
+                    res.status(200).json(dbCountries)
+                })
+
+
         })
-    }catch (err){
+    } catch (err) {
         next(err);
     }
 
