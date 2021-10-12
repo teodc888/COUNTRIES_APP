@@ -10,47 +10,55 @@ const {
     Op
 } = require("sequelize");
 
+
 router.get("/", async (req, res) => {
-    try {
-        const {
-            name
-        } = req.query;
-        await Country.findAll({
-                where: {
-                    name: {
-                        [Op.iLike]: name
-                    }
-                },
-                includes: {
-                    Turistico
-                },
+    if (req.query.name) {
+        try {
+            const {
+                name
+            } = req.query;
+            await Country.findAll({
+                    where: {
+                        name: {
+                            [Op.iLike]: name
+                        }
+                    },
+                    includes: {
+                        Turistico
+                    },
 
-            })
-            .then(dbCountries => {
-                res.status(200).json(dbCountries);
-            })
+                })
+                .then(dbCountries => {
+                    res.status(200).json(dbCountries);
+                })
 
-    } catch (error) {
-        res.status(404).send(error);
+        } catch (error) {
+            res.status(404).send(error);
+        }
+
+    } else {
+        res.status(200).send("No hay nada que mostrar")
     }
 
 })
 
 router.get("/:idPais", async (req, res) => {
     const {
-        id
+        idPais
     } = req.params;
     try {
         await Country.findAll({
                 where: {
-                    id: "e9928800-2b82-11ec-9027-25d007b8fd9d"
+                    id: {
+                        [Op.iLike]: idPais
+                    }
                 }
             })
             .then(dbCountries => {
                 res.status(200).json(dbCountries);
             })
     } catch (error) {
-        res.status(404).json(error);
+        res.status(404).json("XD");
     }
 
 })

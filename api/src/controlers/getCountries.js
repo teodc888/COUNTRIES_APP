@@ -15,6 +15,7 @@ router.get("/", async (req, res, next) => {
 
         country?.forEach(async e => {
             const {
+                cca2,
                 name,
                 flags,
                 region,
@@ -24,6 +25,7 @@ router.get("/", async (req, res, next) => {
 
             await Country?.findOrCreate({
                 where: {
+                    id: cca2,
                     name: name.common,
                     imagen: flags[0],
                     continente: region,
