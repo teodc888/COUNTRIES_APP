@@ -1,19 +1,15 @@
 import "./landingPage.css";
-import React, {useEffect} from "react";
-import { useDispatch } from "react-redux";
-import {AllCountries} from "../../redux/actions"
+import React from "react";
+import { Link } from "react-router-dom";
 
-function LandingPage (){
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(AllCountries())
-    }, [])
-    return(
-        <>
-            <button>Bienvenido</button>
-        </>
-    )
+function LandingPage() {
+  return (
+    <div className="contenedor">
+      <Link to="/home">
+        <button className="botonLanding">Bienvenido</button>
+      </Link>
+    </div>
+  );
 }
 
-export default LandingPage;
+export default LandingPage

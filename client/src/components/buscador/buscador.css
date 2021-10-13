@@ -1,29 +1,4 @@
-.contenedorForm{
-    display: block;
-
-}
-.labelNombre{
-    display: block;
-    
-}
-.labelDificultad{
-    display: block;
-
-}
-.labelDuracion{
-    display: block;
-
-}
-.labelTempora{
-    display: block;
-
-}
-.labelPais{
-    display: block;
-
-}
-
-.inputs{
+.input{
     background-color: rgb(255, 255, 255);
     border-radius: 50px;
     color: rgb(0, 0, 0);
@@ -33,6 +8,6 @@
     border-right-width: 4px;
     border-bottom-width: 4px;
     margin-right: 5px;
-    width: 250px;
+    width: 350px;
     height: 30px;
 }
