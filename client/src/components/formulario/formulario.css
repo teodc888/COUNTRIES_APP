@@ -1,38 +1,104 @@
 .contenedorForm{
     display: block;
+    background: linear-gradient(to bottom, rgb(0, 0, 73), rgb(29, 28, 28));
+    border: solid #000;
+    border-top-width: 8px;
+    border-left-width: 8px;
+    border-right-width: 8px;
+    border-bottom-width: 8px;
+    border-radius: 25px;
+    width: 400px;
+    height: 750px;
+    margin: 0 auto;
+    margin-top: 40px;
 
 }
 .labelNombre{
     display: block;
+    margin-bottom: 5px;
     
 }
 .labelDificultad{
     display: block;
+    margin-bottom: 5px;
 
 }
 .labelDuracion{
     display: block;
+    margin-bottom: 5px;
 
 }
 .labelTempora{
     display: block;
+    margin-bottom: 5px;
 
 }
 .labelPais{
     display: block;
+    margin-bottom: 5px;
 
 }
 
 .inputs{
-    background-color: rgb(255, 255, 255);
-    border-radius: 50px;
-    color: rgb(0, 0, 0);
-    border: solid #000;
-    border-top-width: 4px;
-    border-left-width: 4px;
-    border-right-width: 4px;
-    border-bottom-width: 4px;
+    background: linear-gradient(to bottom, rgb(1, 1, 117), rgb(29, 28, 28));
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    border: solid rgb(0, 0, 0);
+    border-top-width: 2px;
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
     margin-right: 5px;
-    width: 250px;
-    height: 30px;
+    width: 350px;
+    height: 50px;
+    margin-bottom: 30px;
+}
+
+.botonCrear{
+    float: left;
+    margin-top: 30px;
+    margin-left: 10px;
+    font-size: 15px;
+    color:#ffffff;
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:20px;
+    padding-right:20px;
+    background-color:#ffdb9700;
+    border-color: #d8d8d8;
+    border-width: 4px;
+    border-style: solid;
+    border-radius:50px;
+}
+
+.botonVolver{
+    margin-top: 30px;
+    float: right;
+    margin-right: 10px;
+    font-size: 15px;
+    color:#ffffff;
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:20px;
+    padding-right:20px;
+    background-color:#ffdb9700;
+    border-color: #d8d8d8;
+    border-width: 4px;
+    border-style: solid;
+    border-radius:50px;
+
+}
+.selecta{
+    background: linear-gradient(to bottom, rgb(1, 1, 117), rgb(29, 28, 28));
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    border: solid rgb(0, 0, 0);
+    border-top-width: 2px;
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    margin-right: 5px;
+    width: 350px;
+    height: 50px;
+    margin-bottom: 30px;
 }

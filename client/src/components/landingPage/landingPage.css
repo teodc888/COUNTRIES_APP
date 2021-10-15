@@ -1,24 +1,10 @@
-
-.contenedor{
-    width: 45cm;
-    height: 15cm;
+.imagenLanding{
     display: flex;
-    justify-content: center;
-    align-items: center;;
-    
-
-
+    float: left;
 }
-
-.botonLanding{
-    font-size: 30px;
-    padding-top:10px;
-    padding-bottom:10px;
-    padding-left:20px;
-    padding-right:20px;
-    border-style: solid;
-    border-radius:50px;
-    background-color:#bf97ff;
-
+.bienvenidos{
+    display: block;
+    font-size: 50px;
+    
 }
 
