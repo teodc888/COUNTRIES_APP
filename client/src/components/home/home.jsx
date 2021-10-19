@@ -1,9 +1,8 @@
 import "./home.css";
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router";
-import { useDispatch } from "react-redux";
+import { useDispatch} from "react-redux";
 import { AllCountries } from "../../redux/actions";
-import { connect } from "react-redux";
 import LandingPage from "../landingPage/landingPage";
 import NavBar from "../navBar/navBar";
 import Cards from "../cards/cards";
@@ -15,9 +14,8 @@ function Home() {
   const dispatch = useDispatch();
 
   const[buscar, setBuscar] = useState("");
-  const[pais, setPais] = useState({});
-
   const[loading, setLoading]=useState(true);
+  const[CurrentPage, setCurrentPage1] = useState("")
 
   useEffect(() => {
     dispatch(AllCountries());
@@ -25,9 +23,9 @@ function Home() {
       setLoading(false)
     },3500);
     return () => {clearInterval(interval)};
-  }, []);
+  }, [dispatch]);
   
-  const renderCards = (!loading) ? <Cards buscar={buscar} setPais={setPais} /> : <img src={Gif} alt="Cargando.png" width="500" height="500"  />;
+  const renderCards = (!loading) ? <Cards buscar={buscar}  setCurrentPage={setCurrentPage1}  /> : <img src={Gif} alt="Cargando.png" width="500" height="500"  />;
   return (
     <div>
       <Route exact path="/">
@@ -38,6 +36,7 @@ function Home() {
           <NavBar 
           setBuscar={setBuscar} 
           buscar={buscar}
+          setCurrentPage={setCurrentPage1}
           />
           {renderCards}
         </Route>
@@ -52,4 +51,4 @@ function Home() {
   );
 }
 
-export default connect(null, { AllCountries })(Home);
+export default Home;

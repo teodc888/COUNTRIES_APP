@@ -1,0 +1,84 @@
+.contenedorInfo{
+    background: rgb(6,0,125);
+    background: linear-gradient(90deg, rgba(6,0,125,1) 28%, rgba(0,39,255,1) 28%, rgba(0,228,255,1) 100%);
+    border: solid rgb(0, 0, 0);
+    border-top-width: 8px;
+    border-left-width: 8px;
+    border-right-width: 8px;
+    border-bottom-width: 8px;
+    border-radius: 25px;
+    width: 1000px;
+    height: 550px;
+    margin-left: 350px;
+    background-color: rgb(255, 255, 255);
+    margin-top: 100px;
+}
+
+.tituloInfo{
+    display: block;
+    margin-right: 730px;
+    font-size: 35px;
+    text-transform: uppercase;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-bottom: 50px;
+}
+.continenteInfo{
+    display: block;
+    margin-right: 730px;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-bottom: 50px;
+}
+.subinfo{
+    display: block;
+    margin-right: 730px;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-bottom: 65px;
+}
+.imageninfo{
+    display: flex;
+    float: right;
+    width: 450px;
+    height: 300px;
+    margin-right: 130px;
+    
+    
+
+
+}
+.areaunfo{
+    display: block;
+    margin-right: 730px;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-bottom: 50px;
+}
+.poblacioninfo{
+    display: block;
+    margin-right: 730px;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-bottom: 50px;
+}
+.botoninfo{
+    display: block;
+    margin-left: 98px;
+
+    font-size: 20px;
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:20px;
+    padding-right:20px;
+    border-style: solid;
+    border-radius:50px;
+    background-color:#bf97ff;
+
+
+   
+
+}

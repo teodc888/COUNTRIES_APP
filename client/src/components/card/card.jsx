@@ -2,7 +2,7 @@ import "./card.css";
 import React from "react";
 import { Link } from "react-router-dom";
 export default function Card(props) {
-  console.log(props)
+
   return (
     <>
       <div className="contenedorCard">
@@ -10,7 +10,7 @@ export default function Card(props) {
        
         <h3 className="contienenteCard">{props.continente}</h3>
         <Link to={`/pais/${props.id}`}>
-          <img className="imagenCard" src={props.imagen} />
+          <img className="imagenCard" src={props.imagen} alt="imagen"  />
         </Link>
       </div>
     </>

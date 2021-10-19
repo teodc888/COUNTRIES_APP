@@ -8,7 +8,7 @@ function LandingPage() {
     <div>
       <h1 className="bienvenidos">BIENVENIDOS</h1>
       <Link to="/home">
-        <img className="imagenLanding" src={Gif} />
+        <img className="imagenLanding" src={Gif} alt="imagen" />
         
       </Link>
     </div>

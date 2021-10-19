@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import Card from "../card/card";
+import Paginado from "../paginado/paginado";
 import { useSelector } from "react-redux";
 import "./cards.css"
 
@@ -7,19 +8,39 @@ import "./cards.css"
 export function Cards({buscar}) {
 
   const countries = useSelector((state) => state.country);
+  // Pagina actual
+  const[currentPage, setCurrentPage] = useState(1);
+  // cantidad de estados que tengo por pagina
+  const[paisesPorPagina, setPaisesPorPagina]= useState(10);
+  // seteo el index del ultimo pais
+  const indeceDelUltimoPais = currentPage * paisesPorPagina // 10
+  const indiceDelPrimerPais = indeceDelUltimoPais - paisesPorPagina // 0
+  const currentPaises = countries.slice(indiceDelPrimerPais, indeceDelUltimoPais)
 
+  const paginado = (pageNumber) =>{
+    setCurrentPage(pageNumber)
+  }
+
+  
   return (
-    <div className="contenedorCards">
+    <div>
+        <Paginado 
+          paisesPorPagina= {paisesPorPagina}
+          countries= {countries.length}
+          paginado={paginado}
+          />
+      <div className="contenedorCards">
       {
-      countries.length &&
-      countries.filter((country) =>{
-          if(buscar == ""){
+
+      currentPaises.length &&
+      currentPaises.filter((country) =>{
+          if(buscar === ""){
             return country
           }else{
             return country.name.toLowerCase().startsWith(buscar.toLowerCase())
           }
         }).map((element) => {
-          console.log(element)
+
           return (
             <Card 
             id={element.id}
@@ -31,8 +52,16 @@ export function Cards({buscar}) {
             />
           );
         })}
+
+      </div>
+              
     </div>
   );
 }
 
 export default Cards;
+
+
+/*
+
+*/
