@@ -1,0 +1,18 @@
+.botonRecargar{
+    
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    font-size: 20px;
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:20px;
+    padding-right:20px;
+    border-style: solid;
+    border-radius:50px;
+    background-color:#bf97ff;
+}
+
+.botonRecargar:hover{
+    cursor: pointer;
+}

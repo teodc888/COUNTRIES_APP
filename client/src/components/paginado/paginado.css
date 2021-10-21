@@ -1,15 +1,16 @@
 .paginado{
     display: flex;
-    margin-right: 10px;
     background-color: #12123a;
     width: 75%;
+    justify-content: center;
     margin: 0;
-    margin-left: 385px;
-    justify-content: space-evenly;
+
 
 }
 
-
+.pag{
+    margin-right: 35px;
+}
 .pag:hover{
     cursor: pointer;
 

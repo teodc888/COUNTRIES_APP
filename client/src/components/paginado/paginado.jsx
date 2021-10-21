@@ -5,7 +5,7 @@ export default function Paginado({paisesPorPagina, countries, paginado}){
     const pageNumber = []
                         //el Math.ceil redondea para arriba
     for (let i = 1; i <= Math.ceil(countries/paisesPorPagina); i++){
-        pageNumber.push(i )
+        pageNumber.push(i)
     }
 
 
@@ -13,14 +13,13 @@ export default function Paginado({paisesPorPagina, countries, paginado}){
         <>
         
             <nav>
-                <ul className="paginado">
+                <ul className="paginado" >
                 {
                     pageNumber && 
                     pageNumber.map(number =>{
                         return(
-                            <ul key={number}>
-                                <p className="pag" onClick={() => paginado(number)}>{number}</p>
-                            </ul>
+                                <p key={number} className="pag" onClick={() => paginado(number)}>{number}</p>
+
                         )
                         })
                 }

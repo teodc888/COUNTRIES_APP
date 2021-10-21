@@ -9,13 +9,14 @@ import Cards from "../cards/cards";
 import Formulario from "../formulario/formulario";
 import Informacion from "../informacion/informacion";
 import Gif from "../../imagenes/gif.gif";
+import GifRecarga from "../../imagenes/gif4.gif"
 
 function Home() {
   const dispatch = useDispatch();
 
-  const[buscar, setBuscar] = useState("");
   const[loading, setLoading]=useState(true);
-  const[CurrentPage, setCurrentPage1] = useState("")
+  const[currentPage, setCurrentPage] = useState(1)
+  const[orden, setOrden]=useState("")
 
   useEffect(() => {
     dispatch(AllCountries());
@@ -25,7 +26,14 @@ function Home() {
     return () => {clearInterval(interval)};
   }, [dispatch]);
   
-  const renderCards = (!loading) ? <Cards buscar={buscar}  setCurrentPage={setCurrentPage1}  /> : <img src={Gif} alt="Cargando.png" width="500" height="500"  />;
+
+  function handleClick(e){
+    e.preventDefault(e);
+    dispatch(AllCountries())
+  }
+
+  
+  const renderCards = (!loading) ? <Cards currentPage={currentPage} setCurrentPage={setCurrentPage} /> : <img src={Gif} alt="Cargando.png" width="500" height="500"  />;
   return (
     <div>
       <Route exact path="/">
@@ -34,11 +42,11 @@ function Home() {
       <Switch>
         <Route path="/home">
           <NavBar 
-          setBuscar={setBuscar} 
-          buscar={buscar}
-          setCurrentPage={setCurrentPage1}
+          setCurrentPage={setCurrentPage}
+          setOrden={setOrden}
           />
           {renderCards}
+          <button className="botonRecargar" onClick={(e) => handleClick(e)} ><img src={GifRecarga} width="80" /></button>
         </Route>
         <Route exact path="/formulario">
           <Formulario />

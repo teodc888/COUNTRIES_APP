@@ -1,7 +1,7 @@
 .navBar{
     background-color: #12123a;
     color: white;
-    height: 23cm;
+    height: 22.5cm;
     width: 10cm;
     display: block;
     float: left;
@@ -23,11 +23,6 @@
 .continenteBar{
     display: block;
     margin-bottom: 50px;
-}
-.actividadBar{
-    display: block;
-    margin-bottom: 50px;
-    text-align: center;
 }
 .ordenarBar{
     display: block;

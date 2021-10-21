@@ -5,11 +5,11 @@ import { useSelector } from "react-redux";
 import "./cards.css"
 
 
-export function Cards({buscar}) {
+export function Cards({currentPage, setCurrentPage}) {
 
-  const countries = useSelector((state) => state.country);
+  const countries = useSelector((state) => state.countries);
   // Pagina actual
-  const[currentPage, setCurrentPage] = useState(1);
+  // const[currentPage, setCurrentPage] = useState(1);
   // cantidad de estados que tengo por pagina
   const[paisesPorPagina, setPaisesPorPagina]= useState(10);
   // seteo el index del ultimo pais
@@ -33,13 +33,7 @@ export function Cards({buscar}) {
       {
 
       currentPaises.length &&
-      currentPaises.filter((country) =>{
-          if(buscar === ""){
-            return country
-          }else{
-            return country.name.toLowerCase().startsWith(buscar.toLowerCase())
-          }
-        }).map((element) => {
+      currentPaises.map((element) => {
 
           return (
             <Card 

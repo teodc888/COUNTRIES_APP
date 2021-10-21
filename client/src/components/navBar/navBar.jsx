@@ -1,21 +1,15 @@
 import "./navBar.css";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Imgen from "../../imagenes/gif4.gif";
 import { useDispatch} from "react-redux";
-import { filtradoPorContinente, filtrarPorNombre, filtrarPorPoblacion } from "../../redux/actions";
+import { filtradoPorContinente, filtrarPorNombre, filtrarPorPoblacion} from "../../redux/actions";
+import Buscador from "../buscador/buscador";
 
 
-export default function NavBar({setBuscar, buscar}) {
+export default function NavBar({ setCurrentPage, setOrden}) {
   const dispatch = useDispatch();
-  const[orden, setOrden]=useState("")
-
-
-
-
-  const handleInputChange = function(e) {
-    setBuscar(e.target.value);
-  }
+  const history = useHistory()
 
   function handelFilterPorStatus(e){
     dispatch(filtradoPorContinente(e.target.value))
@@ -24,14 +18,19 @@ export default function NavBar({setBuscar, buscar}) {
   function handelFilterPorNombre(e){
     e.preventDefault();
     dispatch(filtrarPorNombre(e.target.value))
+    setCurrentPage(1);
     setOrden(e.target.value)
+    history.push("/home")
+    
     
   }
 
   function handelfiltrarPorPoblacion(e){
     e.preventDefault();
     dispatch(filtrarPorPoblacion(e.target.value))
+    setCurrentPage(1);
     setOrden(e.target.value)
+    history.push("/home")
     
   }
 
@@ -44,7 +43,7 @@ export default function NavBar({setBuscar, buscar}) {
         <span className="nameBar">DellAcquasCountries</span>
         <span className="buscadorBar">
           <p>BUSCADOR</p>
-          <input className="inputsBar" type="text" placeholder="Buscar Pais..." value={buscar} onChange={handleInputChange}  />
+          <Buscador />
         </span>
         <span className="continenteBar">
           <p>
@@ -56,14 +55,6 @@ export default function NavBar({setBuscar, buscar}) {
               <option value="Africa">AFRICA</option>
               <option value="Oceania">OCEANIA</option>
               <option value="Antarctic">ANTARCTIC</option>
-            </select>
-          </p>
-        </span>
-        <span className="actividadBar">
-          <p>
-            <select className="select">
-              <option>ACTIVIDAD...</option>
-              <option>Actividad</option>
             </select>
           </p>
         </span>

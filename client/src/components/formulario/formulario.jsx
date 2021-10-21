@@ -1,8 +1,8 @@
 import "./formulario.css";
-import React, { useState } from "react";
-import { PostActivity } from "../../redux/actions";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { PostActivity, AllCountries } from "../../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
 
 export function validate(input) {
   let errors = {};
@@ -14,15 +14,23 @@ export function validate(input) {
 }
 
 export function Formulario() {
+  const history = useHistory();
+
+  const countries = useSelector((state) => state.countries);
+
+  useEffect(() => {
+    dispatch(AllCountries());
+  }, []);
 
   const dispatch = useDispatch();
   const [input, setInput] = useState({
-    nombre: "",
+    name: "",
     dificultad: "",
     duracion: "",
     temporada: "",
-    pais: "",
+    countries:[]
   });
+  console.log(input);
 
   const handleInputChange = function (e) {
     setInput({
@@ -31,73 +39,99 @@ export function Formulario() {
     });
   };
 
-  function handelSubmit(e){
+  const handleSelectCountries = function (e) {
+    setInput({
+      countries: [...input.countries, e.target.value],
+    });
+  };
+  const handleSelect = function (e) {
+    setInput({
+      ...input,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  function handleSubmit(e) {
     e.preventDefault();
-    dispatch(PostActivity(input))
-    alert("Actividad creada")
+    dispatch(PostActivity(input));
+    alert("Actividad creada");
+    setInput({
+      name: "",
+      dificultad: "",
+      duracion: "",
+      temporada: "",
+      countries:[]
+    });
+    history.push("/home");
   }
 
   return (
     <div className="contenedorForm">
       <h1>CREAR FORMULARIO</h1>
-      <from onSubmit={(e) => handelSubmit(e)}>
-            <label className="labelNombre">Nombre</label>
-            <input
-              className="inputs"
-              name="nombre"
-              type="text"
-              placeholder="Nombre..."
-              value={input.nombre}
-              onChange={handleInputChange}
-            />
 
-            <label className="labelDificultad">Dificultad</label>
-            <input
-              className="inputs"
-              name="dificultad"
-              type="number"
-              min="1"
-              max="5"
-              placeholder="Dificultad..."
-              value={input.dificultad}
-              onChange={handleInputChange}
-            />
+      <label className="labelPais">Pais</label>
+      <form onSubmit={(e) => handleSubmit(e)}>
+      <select onChange={(e) => handleSelectCountries(e)} className="select">
+        {countries.map((el) => {
+          return (
+            <option key={el.id} name="pais" value={el.id}>
+              {el.name} 
+            </option>
+          );
+        })}
+      </select>
+        <label className="labelNombre">Nombre</label>
+        <input
+          className="inputs"
+          name="name"
+          type="text"
+          placeholder="Nombre..."
+          value={input.name}
+          onChange={handleInputChange}
+        />
 
-            <label className="labelDuracion">Duracion</label>
-            <input
-              className="inputs"
-              name="duracion"
-              type="number"
-              placeholder="Duracion..."
-              value={input.duracion}
-              onChange={handleInputChange}
-            />
+        <label className="labelDificultad">Dificultad</label>
+        <input
+          className="inputs"
+          name="dificultad"
+          type="number"
+          min="1"
+          max="5"
+          placeholder="Dificultad..."
+          value={input.dificultad}
+          onChange={handleInputChange}
+        />
 
-            <label className="labelTempora">Temporada</label>
-            <p>
-              <select className="select">
-                <option>VERANO</option>
-                <option>INVIERNO</option>
-                <option>PRIMAVERA</option>
-                <option>OTOÑO</option>
-              </select>
-            </p>
+        <label className="labelDuracion">Duracion</label>
+        <input
+          className="inputs"
+          name="duracion"
+          type="number"
+          placeholder="Duracion..."
+          value={input.duracion}
+          onChange={handleInputChange}
+        />
 
-            <label className="labelPais">Pais</label>
-            <input
-              className="inputs"
-              name="pais"
-              type="text"
-              placeholder="Pais"
-              value={input.pais}
-              onChange={handleInputChange}
-            />
-
-            <button className="botonCrear">Crear</button>
-            <Link to="/home">
-              <button className="botonVolver">Volver</button>
-            </Link>
-      </from>
+        <label className="labelTempora">Temporada</label>
+        <p>
+          <select
+            onChange={(e) => handleSelect(e)}
+            name="temporada"
+            className="select"
+          >
+            <option name="temporada" value="Verano">Verano</option>
+            <option name="temporada" value="Invierno">Invierno</option>
+            <option name="temporada" value="Primavera">Primavera</option>
+            <option name="temporada" value="Otoño">Otoño</option>
+          </select>
+        </p>
+        <button type="submit" className="botonCrear">
+          Crear
+        </button>
+        <Link to="/home">
+          <button className="botonVolver">Volver</button>
+        </Link>
+      </form>
     </div>
   );
 }

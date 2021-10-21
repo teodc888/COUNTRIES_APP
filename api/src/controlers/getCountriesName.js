@@ -10,11 +10,8 @@ router.get("/", async (req, res) => {
       await Country.findAll({
         where: {
           name: {
-            [Op.iLike]: name,
+            [Op.iLike]: `%${name}%`,
           },
-        },
-        includes: {
-          Turistico,
         },
       }).then((dbCountries) => {
         res.status(200).json(dbCountries);
@@ -32,10 +29,9 @@ router.get("/:idPais", async (req, res) => {
   try {
     await Country.findAll({
       where: {
-        id: {
-          [Op.iLike]: idPais,
+          id: idPais,
         },
-      },
+        include: [Turistico],
     }).then((dbCountries) => {
       res.status(200).json(dbCountries);
     });

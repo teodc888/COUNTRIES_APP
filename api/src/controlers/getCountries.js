@@ -22,7 +22,7 @@ router.get("/", async (req, res, next) => {
           },
         });
   
-        Country.findAll().then((dbCountries) => {
+        await Country.findAll().then((dbCountries) => {
           res.status(200).json(dbCountries);
         });
       });
