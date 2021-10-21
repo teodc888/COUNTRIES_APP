@@ -29,6 +29,7 @@ function Home() {
 
   function handleClick(e){
     e.preventDefault(e);
+    setLoading(true)
     dispatch(AllCountries())
   }
 

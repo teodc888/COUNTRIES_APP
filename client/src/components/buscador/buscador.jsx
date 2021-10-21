@@ -16,6 +16,7 @@ export default function Buscador(){
     function handleButton(e){
         e.preventDefault();
         dispatch(BuscarPorNombre(name))
+        
     }
     return(
         <div>
@@ -30,7 +31,7 @@ export default function Buscador(){
             onClick={e => handleButton(e)}
             className="botonBuscar"
             >
-                buscar
+                BUSCAR
             </button>
 
         </div>

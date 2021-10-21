@@ -5,7 +5,7 @@ const { Turistico, Country } = require("../db.js");
 router.use(express.json());
 
 router.post("/", async (req, res) => {
-  const {name, dificultad, duracion, temporada, countries } = req.body;
+  const { name, dificultad, duracion, temporada, countries } = req.body;
   try {
     const newTuristico = await Turistico.create({
       name,
@@ -14,13 +14,9 @@ router.post("/", async (req, res) => {
       temporada,
     });
 
-    // for(let i=0; i < countries.lenght; i++){
-    //   await newTuristico.addCountry(countries[i])
-    // }
+    let dbTuris = await Country.findAll({ where: { id: countries } });
 
-    let dbTuris = await Country.findAll({where:{id: countries}})
-
-     newTuristico.addCountry(dbTuris)
+    newTuristico.addCountry(dbTuris);
 
     res.status(200).json(newTuristico);
   } catch (error) {

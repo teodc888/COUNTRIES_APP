@@ -47,7 +47,7 @@ export default function NavBar({ setCurrentPage, setOrden}) {
         </span>
         <span className="continenteBar">
           <p>
-            <select onChange={e => handelFilterPorStatus(e)} className="select">
+            <select onChange={e => handelFilterPorStatus(e)} className="selecte">
               <option value="All">CONTINENTE...</option>
               <option value="Americas" >AMERICA</option>
               <option value="Europe">EUROPA</option>
@@ -60,7 +60,7 @@ export default function NavBar({ setCurrentPage, setOrden}) {
         </span>
         <span className="ordenarBar">
           <p>
-            <select onChange={e => handelFilterPorNombre(e)} className="select">
+            <select onChange={e => handelFilterPorNombre(e)} className="selecte">
               <option>FILTRAR POR...</option>
               <option value="AZ">A...Z</option>
 
@@ -70,7 +70,7 @@ export default function NavBar({ setCurrentPage, setOrden}) {
         </span>
         <span className="ordenarBar">
           <p>
-            <select  onChange={e => handelfiltrarPorPoblacion(e)} className="select">
+            <select  onChange={e => handelfiltrarPorPoblacion(e)} className="selecte">
               <option>ORDENAR POR...</option>
               <option value="++">POBLACION ++</option>
 

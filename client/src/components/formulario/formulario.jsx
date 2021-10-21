@@ -28,7 +28,7 @@ export function Formulario() {
     dificultad: "",
     duracion: "",
     temporada: "",
-    countries:[]
+    countries: [],
   });
   console.log(input);
 
@@ -60,7 +60,7 @@ export function Formulario() {
       dificultad: "",
       duracion: "",
       temporada: "",
-      countries:[]
+      countries: [],
     });
     history.push("/home");
   }
@@ -71,15 +71,16 @@ export function Formulario() {
 
       <label className="labelPais">Pais</label>
       <form onSubmit={(e) => handleSubmit(e)}>
-      <select onChange={(e) => handleSelectCountries(e)} className="select">
-        {countries.map((el) => {
-          return (
-            <option key={el.id} name="pais" value={el.id}>
-              {el.name} 
-            </option>
-          );
-        })}
-      </select>
+        <select onChange={(e) => handleSelectCountries(e)} className="select">
+          <option>PAISES...</option>
+          {countries.map((el) => {
+            return (
+                <option key={el.id} name="pais" value={el.id}>
+                  {el.name}
+                </option>
+            );
+          })}
+        </select>
         <label className="labelNombre">Nombre</label>
         <input
           className="inputs"
@@ -119,10 +120,21 @@ export function Formulario() {
             name="temporada"
             className="select"
           >
-            <option name="temporada" value="Verano">Verano</option>
-            <option name="temporada" value="Invierno">Invierno</option>
-            <option name="temporada" value="Primavera">Primavera</option>
-            <option name="temporada" value="Otoño">Otoño</option>
+            <option>
+              TEMPORADA...
+            </option>
+            <option name="temporada" value="Verano">
+              Verano
+            </option>
+            <option name="temporada" value="Invierno">
+              Invierno
+            </option>
+            <option name="temporada" value="Primavera">
+              Primavera
+            </option>
+            <option name="temporada" value="Otoño">
+              Otoño
+            </option>
           </select>
         </p>
         <button type="submit" className="botonCrear">
