@@ -8,6 +8,7 @@ import NavBar from "../navBar/navBar";
 import Cards from "../cards/cards";
 import Formulario from "../formulario/formulario";
 import Informacion from "../informacion/informacion";
+import Actividades from "../actividades/actividades";
 import Gif from "../../imagenes/gif.gif";
 import GifRecarga from "../../imagenes/gif4.gif"
 
@@ -54,6 +55,9 @@ function Home() {
         </Route>
         <Route exact path="/pais/:idPais" component={Informacion} >
 
+        </Route>
+        <Route exact path="/actividades">
+            <Actividades/>
         </Route>
       </Switch>
     </div>

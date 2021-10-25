@@ -6,6 +6,7 @@ export const FILTER_BY_CONTINENTE = "FILTER_BY_CONTINENTE";
 export const FILTER_BY_NOM = "FILTER_BY_NOM"
 export const FILTER_BY_POB = "FILTER_BY_POB"
 export const BUSCAR_NOMBRE = "BUSCAR_NOMBRE"
+export const ALL_ACTIVIDADES = "ALL_ACTIVIDADES"
 
 export function AllCountries() {
   return function (dispatch) {
@@ -16,6 +17,16 @@ export function AllCountries() {
       });
   };
 }
+export function AllActividades (){
+  return function (dispatch) {
+    fetch("http://localhost:3001/actividades")
+      .then((res) => res.json())
+      .then((data) => {
+          dispatch({ type: ALL_ACTIVIDADES, payload: data})
+      })
+  }
+}
+
 
 export function GetCountry (idPais) {
   return function(dispatch){
@@ -73,3 +84,4 @@ export function BuscarPorNombre (name) {
       })
   }
 }
+

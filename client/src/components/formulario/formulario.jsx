@@ -4,13 +4,14 @@ import { PostActivity, AllCountries } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 
-export function validate(input) {
+function validate(input) {
   let errors = {};
-  if (!input.temporada) {
-    errors.temporada = "Temporada is required";
-  } else if (input.temporada !== "Verano") {
-    errors.temporada = "Temporada is invalid";
+  if (!input.name) {
+    errors.name = "name is required";
+  } else if (typeof(input.name) !== "string") {
+    errors.name = "Temporada is invalid";
   }
+  return errors
 }
 
 export function Formulario() {
@@ -23,6 +24,7 @@ export function Formulario() {
   }, []);
 
   const dispatch = useDispatch();
+  const [errors, setErrors] = useState({})
   const [input, setInput] = useState({
     name: "",
     dificultad: "",
@@ -37,6 +39,12 @@ export function Formulario() {
       ...input,
       [e.target.name]: e.target.value,
     });
+    setErrors(
+      validate({
+        ...input,
+        [e.target.name]: e.target.value,
+      })
+    );
   };
 
   const handleSelectCountries = function (e) {
@@ -81,6 +89,7 @@ export function Formulario() {
             );
           })}
         </select>
+
         <label className="labelNombre">Nombre</label>
         <input
           className="inputs"
@@ -90,20 +99,40 @@ export function Formulario() {
           value={input.name}
           onChange={handleInputChange}
         />
+        {
+          errors.name && 
+          <p className="error"> {errors.name} </p>
+        }
 
         <label className="labelDificultad">Dificultad</label>
-        <input
-          className="inputs"
-          name="dificultad"
-          type="number"
-          min="1"
-          max="5"
-          placeholder="Dificultad..."
-          value={input.dificultad}
-          onChange={handleInputChange}
-        />
+        <p>
+          <select
+            onChange={(e) => handleSelect(e)}
+            name="dificultad"
+            className="select"
+          >
+            <option>
+              DIFICULTAD...
+            </option>
+            <option name="dificultad" value="1">
+              Muy facil
+            </option>
+            <option name="dificultad" value="2">
+              facil
+            </option>
+            <option name="dificultad" value="3">
+              Intermedio
+            </option>
+            <option name="dificultad" value="4">
+              Dificil
+            </option>
+            <option name="dificultad" value="5">
+              Muy Dificil
+            </option>
+          </select>
+        </p>
 
-        <label className="labelDuracion">Duracion</label>
+        <label className="labelDuracion">Duracion En Minutos</label>
         <input
           className="inputs"
           name="duracion"

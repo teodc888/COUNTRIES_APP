@@ -1,6 +1,6 @@
 import "./navBar.css";
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link} from "react-router-dom";
 import Imgen from "../../imagenes/gif4.gif";
 import { useDispatch} from "react-redux";
 import { filtradoPorContinente, filtrarPorNombre, filtrarPorPoblacion} from "../../redux/actions";
@@ -9,7 +9,7 @@ import Buscador from "../buscador/buscador";
 
 export default function NavBar({ setCurrentPage, setOrden}) {
   const dispatch = useDispatch();
-  const history = useHistory()
+
 
   function handelFilterPorStatus(e){
     dispatch(filtradoPorContinente(e.target.value))
@@ -20,7 +20,7 @@ export default function NavBar({ setCurrentPage, setOrden}) {
     dispatch(filtrarPorNombre(e.target.value))
     setCurrentPage(1);
     setOrden(e.target.value)
-    history.push("/home")
+
     
     
   }
@@ -30,7 +30,7 @@ export default function NavBar({ setCurrentPage, setOrden}) {
     dispatch(filtrarPorPoblacion(e.target.value))
     setCurrentPage(1);
     setOrden(e.target.value)
-    history.push("/home")
+
     
   }
 
@@ -81,6 +81,11 @@ export default function NavBar({ setCurrentPage, setOrden}) {
         <span>
           <Link to="/formulario">
             <button className="crearActividad">CREAR ACTIVIDAD</button>
+          </Link>
+        </span>
+        <span>
+          <Link to="/actividades">
+            <button className="crearActividad">Ver actividades</button>
           </Link>
         </span>
       </nav>

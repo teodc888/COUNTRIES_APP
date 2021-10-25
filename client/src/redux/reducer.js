@@ -1,9 +1,10 @@
-import { ALL_COUNTRIES, GET_COUNTRY, POST_ACTIVITY, FILTER_BY_CONTINENTE, FILTER_BY_NOM, FILTER_BY_POB, BUSCAR_NOMBRE } from "./actions";
+import { ALL_COUNTRIES, GET_COUNTRY, POST_ACTIVITY, FILTER_BY_CONTINENTE, FILTER_BY_NOM, FILTER_BY_POB, BUSCAR_NOMBRE, ALL_ACTIVIDADES } from "./actions";
 
 const inicialState = {
   countries: [],
   countryId: {},
-  countriesFilter: []
+  countriesFilter: [],
+  actividades: []
 };
 
 function rootReducer(state = inicialState, action) {
@@ -103,6 +104,13 @@ function rootReducer(state = inicialState, action) {
       countries: action.payload 
     }
 
+  }
+  if(action.type === ALL_ACTIVIDADES ){
+    return{
+      ...state,
+      actividades: action.payload
+      
+    }
   }
   
   return state;

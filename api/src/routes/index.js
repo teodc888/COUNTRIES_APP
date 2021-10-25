@@ -5,8 +5,8 @@ const express = require("express")
 
 const getCountries = require("../controlers/getCountries.js")
 const getCountriesName = require("../controlers/getCountriesName.js")
-const postTuristico = require("../controlers/postTuristico");
-
+const postTuristico = require("../controlers/postTuristico.js");
+const getTuristico = require("../controlers/getTuristico.js")
 const router = Router();
 router.use(express.json()); 
 
@@ -16,6 +16,7 @@ router.use(express.json());
 router.use("/countries", getCountries);
 router.use("/countriesData", getCountriesName)
 router.use("/activity", postTuristico)
+router.use("/actividades", getTuristico)
 
 
 module.exports = router;

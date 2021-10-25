@@ -14,19 +14,19 @@ export function Informacion(props) {
         dispatch(GetCountry(props.match.params.idPais));
     }, [dispatch])
     const country = useSelector((state) => state.countryId)
-    console.log(country)
     return(
         <>
             {
                 country.length > 0 ?
                 <div className="contenedorInfo">
                     <h1 className="tituloInfo">{country[0].name}</h1>
+                    <h2 className="ID">{country[0].capital}</h2>
                     <p className="ID">{country[0].id}</p>
                     <img className="imageninfo" src={country[0].imagen} alt="imagen" />
                     <h2 className="continenteInfo">{country[0].continente}</h2>
                     <h3 className="subinfo">{country[0].subregion}</h3>
-                    <h4 className="areaunfo">AREA: {country[0].area}</h4>
-                    <h4 className="poblacioninfo">POBLACION: {country[0].poblacion}</h4>
+                    <h4 className="areaunfo">AREA: {new Intl.NumberFormat("de-DE").format(country[0].area) + " km2"}</h4>
+                    <h4 className="poblacioninfo">POBLACION: {new Intl.NumberFormat("de-DE").format(country[0].poblacion)}</h4>
                     <Link to="/home">
                         <button className="botoninfo">Atras</button>
                     </Link>
