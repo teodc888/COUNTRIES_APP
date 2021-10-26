@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import "./cards.css"
 
 
-export function Cards({currentPage, setCurrentPage}) {
+function Cards({currentPage, setCurrentPage}) {
 
   const countries = useSelector((state) => state.countries);
   // Pagina actual

@@ -35,11 +35,11 @@ function Home() {
   }
 
   
-  const renderCards = (!loading) ? <Cards currentPage={currentPage} setCurrentPage={setCurrentPage} /> : <img src={Gif} alt="Cargando.png" width="500" height="500"  />;
+  const renderCards = (!loading) ? <Cards currentPage={currentPage} setCurrentPage={setCurrentPage} /> : <img src={Gif} alt="Cargando.png" width="500" height="500" alt=""  />;
   return (
     <div>
       <Route exact path="/">
-        <LandingPage />
+        <LandingPage  setLoading={setLoading}/>
       </Route>
       <Switch>
         <Route path="/home">
@@ -51,16 +51,18 @@ function Home() {
           <button className="botonRecargar" onClick={(e) => handleClick(e)} ><img src={GifRecarga} width="80" /></button>
         </Route>
         <Route exact path="/formulario">
-          <Formulario />
+          <Formulario setLoading={setLoading} />
         </Route>
-        <Route exact path="/pais/:idPais" component={Informacion} >
-
+        <Route exact path="/pais/:idPais" component={Informacion}>
+          
         </Route>
         <Route exact path="/actividades">
-            <Actividades/>
+            <Actividades setLoading={setLoading}/>
         </Route>
       </Switch>
+    
     </div>
+    
   );
 }
 

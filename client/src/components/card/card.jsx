@@ -1,7 +1,7 @@
 import "./card.css";
 import React from "react";
 import { Link } from "react-router-dom";
-export default function Card(props) {
+function Card(props) {
 
   return (
     <>
@@ -16,3 +16,5 @@ export default function Card(props) {
     </>
   );
 }
+
+export default Card;

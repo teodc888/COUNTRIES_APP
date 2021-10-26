@@ -15,27 +15,27 @@
 }
 .labelNombre{
     display: block;
-    margin-bottom: 5px;
+    margin-top: 5px;
     
 }
 .labelDificultad{
     display: block;
-    margin-bottom: 5px;
+    margin-top: 5px;
 
 }
 .labelDuracion{
     display: block;
-    margin-bottom: 5px;
+    margin-top: 5px;
 
 }
 .labelTempora{
     display: block;
-    margin-bottom: 5px;
+    margin-top: 5px;
 
 }
 .labelPais{
     display: block;
-    margin-bottom: 5px;
+    margin-top: 5px;
 
 }
 
@@ -51,7 +51,7 @@
     margin-right: 5px;
     width: 350px;
     height: 50px;
-    margin-bottom: 30px;
+    margin-top: 30px;
 }
 
 .botonCrear{
@@ -101,7 +101,12 @@
     margin-right: 5px;
     width: 350px;
     height: 50px;
-    margin-bottom: 30px;
+    margin-top: 30px;
 }
 
 
+.error{
+    display: block;
+    margin-top: 5px;
+    color: red;
+}

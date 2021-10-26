@@ -1,5 +1,5 @@
 import "./navBar.css";
-import React, { useState } from "react";
+import React from "react";
 import { Link} from "react-router-dom";
 import Imgen from "../../imagenes/gif4.gif";
 import { useDispatch} from "react-redux";
@@ -7,12 +7,13 @@ import { filtradoPorContinente, filtrarPorNombre, filtrarPorPoblacion} from "../
 import Buscador from "../buscador/buscador";
 
 
-export default function NavBar({ setCurrentPage, setOrden}) {
+function NavBar({ setCurrentPage, setOrden}) {
   const dispatch = useDispatch();
 
 
   function handelFilterPorStatus(e){
     dispatch(filtradoPorContinente(e.target.value))
+
   }
 
   function handelFilterPorNombre(e){
@@ -92,3 +93,5 @@ export default function NavBar({ setCurrentPage, setOrden}) {
     </>
   );
 }
+
+export default NavBar;

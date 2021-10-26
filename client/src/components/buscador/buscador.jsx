@@ -4,19 +4,15 @@ import { useDispatch } from "react-redux";
 import { BuscarPorNombre } from "../../redux/actions";
 import "./buscador.css"
 
-export default function Buscador(){
+function Buscador(){
     const dispatch = useDispatch();
     const[name, setName]= useState("");
 
     function handleInputChange(e){
         e.preventDefault();
         setName(e.target.value)
-    }
-
-    function handleButton(e){
-        e.preventDefault();
         dispatch(BuscarPorNombre(name))
-        
+  
     }
     return(
         <div>
@@ -26,15 +22,10 @@ export default function Buscador(){
             onChange={e => handleInputChange(e)}
             className="buscador"
             />
-            <button 
-            type="submit" 
-            onClick={e => handleButton(e)}
-            className="botonBuscar"
-            >
-                BUSCAR
-            </button>
 
         </div>
     )
 
 }
+
+export default Buscador;

@@ -1,7 +1,7 @@
 import React from "react";
 import "./paginado.css"
 
-export default function Paginado({paisesPorPagina, countries, paginado}){
+function Paginado({paisesPorPagina, countries, paginado}){
     const pageNumber = []
                         //el Math.ceil redondea para arriba
     for (let i = 1; i <= Math.ceil(countries/paisesPorPagina); i++){
@@ -30,3 +30,5 @@ export default function Paginado({paisesPorPagina, countries, paginado}){
     )
     
 }
+
+export default Paginado;

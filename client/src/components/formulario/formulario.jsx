@@ -7,23 +7,25 @@ import { Link, useHistory } from "react-router-dom";
 function validate(input) {
   let errors = {};
   if (!input.name) {
-    errors.name = "name is required";
-  } else if (typeof(input.name) !== "string") {
-    errors.name = "Temporada is invalid";
+    errors.name = "Name is required";
+  }
+  if (!input.duracion){
+    errors.duracion = "Duracion is required"
   }
   return errors
 }
 
-export function Formulario() {
+function Formulario({setLoading}) {
   const history = useHistory();
 
   const countries = useSelector((state) => state.countries);
+  const dispatch = useDispatch();
+
 
   useEffect(() => {
     dispatch(AllCountries());
-  }, []);
+  }, [dispatch]);
 
-  const dispatch = useDispatch();
   const [errors, setErrors] = useState({})
   const [input, setInput] = useState({
     name: "",
@@ -70,7 +72,14 @@ export function Formulario() {
       temporada: "",
       countries: [],
     });
+    setLoading(true)
     history.push("/home");
+  }
+  function handleClick(e){
+    e.preventDefault(e);
+    setLoading(true)
+    history.push("/home");
+  
   }
 
   return (
@@ -88,9 +97,12 @@ export function Formulario() {
                 </option>
             );
           })}
-        </select>
-
-        <label className="labelNombre">Nombre</label>
+        </select>    
+       { errors.name ? <label className="error"> {errors.name} </label>:
+       
+       <label className="labelNombre">Nombre</label>
+       
+       }
         <input
           className="inputs"
           name="name"
@@ -99,10 +111,6 @@ export function Formulario() {
           value={input.name}
           onChange={handleInputChange}
         />
-        {
-          errors.name && 
-          <p className="error"> {errors.name} </p>
-        }
 
         <label className="labelDificultad">Dificultad</label>
         <p>
@@ -132,15 +140,20 @@ export function Formulario() {
           </select>
         </p>
 
-        <label className="labelDuracion">Duracion En Minutos</label>
+        {
+          errors.duracion ?  <label className="error"> {errors.duracion} </label> :
+          <label className="labelDuracion">Duracion En Minutos</label>
+          }
         <input
           className="inputs"
           name="duracion"
           type="number"
+          min="1"
           placeholder="Duracion..."
           value={input.duracion}
           onChange={handleInputChange}
         />
+
 
         <label className="labelTempora">Temporada</label>
         <p>
@@ -170,7 +183,7 @@ export function Formulario() {
           Crear
         </button>
         <Link to="/home">
-          <button className="botonVolver">Volver</button>
+        <button className="botonVolver" onClick={(e) => handleClick(e)} >volver</button>
         </Link>
       </form>
     </div>
