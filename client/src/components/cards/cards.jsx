@@ -16,7 +16,7 @@ function Cards({currentPage, setCurrentPage}) {
   const indeceDelUltimoPais = currentPage * paisesPorPagina // 10
   const indiceDelPrimerPais = indeceDelUltimoPais - paisesPorPagina // 0
   const currentPaises = countries.slice(indiceDelPrimerPais, indeceDelUltimoPais)
-
+  // slice muestra un nuevo array empezando del principio al final
   const paginado = (pageNumber) =>{
     setCurrentPage(pageNumber)
   }

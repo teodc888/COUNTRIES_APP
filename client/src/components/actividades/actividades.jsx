@@ -31,7 +31,7 @@ function Actividades({setLoading}) {
                         <h2>Dificultad: {actividades.dificultad}</h2>
                         <h3>Duracion: {actividades.duracion} minutos</h3>
                         <h3>Temporada: {actividades.temporada}</h3>
-                        <h3 className="nameAc">{actividades.countries.map((el) => el.name + " - ")}</h3>
+                        <h3 className="nameAc">{actividades.countries.map((el) => el.name + " . ")}</h3>
                   
 
                   </div>

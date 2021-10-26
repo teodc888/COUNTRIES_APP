@@ -11,9 +11,8 @@ function NavBar({ setCurrentPage, setOrden}) {
   const dispatch = useDispatch();
 
 
-  function handelFilterPorStatus(e){
+  function handelFilterPorContinente(e){
     dispatch(filtradoPorContinente(e.target.value))
-
   }
 
   function handelFilterPorNombre(e){
@@ -48,7 +47,7 @@ function NavBar({ setCurrentPage, setOrden}) {
         </span>
         <span className="continenteBar">
           <p>
-            <select onChange={e => handelFilterPorStatus(e)} className="selecte">
+            <select onChange={e => handelFilterPorContinente(e)} className="selecte">
               <option value="All">CONTINENTE...</option>
               <option value="Americas" >AMERICA</option>
               <option value="Europe">EUROPA</option>

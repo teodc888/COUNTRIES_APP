@@ -9,7 +9,7 @@ import Cards from "../cards/cards";
 import Formulario from "../formulario/formulario";
 import Informacion from "../informacion/informacion";
 import Actividades from "../actividades/actividades";
-import Gif from "../../imagenes/gif.gif";
+import Gif from "../../imagenes/gif5.gif";
 import GifRecarga from "../../imagenes/gif4.gif"
 
 function Home() {
@@ -23,7 +23,7 @@ function Home() {
     dispatch(AllCountries());
     const interval = setInterval(() => {
       setLoading(false)
-    },3500);
+    },4000);
     return () => {clearInterval(interval)};
   }, [dispatch]);
   
@@ -48,7 +48,7 @@ function Home() {
           setOrden={setOrden}
           />
           {renderCards}
-          <button className="botonRecargar" onClick={(e) => handleClick(e)} ><img src={GifRecarga} width="80" /></button>
+          <button className="botonRecargar" onClick={(e) => handleClick(e)} ><img src={GifRecarga} width="80" alt="imagen" /></button>
         </Route>
         <Route exact path="/formulario">
           <Formulario setLoading={setLoading} />

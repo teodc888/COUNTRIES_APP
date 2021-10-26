@@ -7,10 +7,10 @@ import { Link, useHistory } from "react-router-dom";
 function validate(input) {
   let errors = {};
   if (!input.name) {
-    errors.name = "Name is required";
+    errors.name = "Nombre es requerido";
   }
   if (!input.duracion){
-    errors.duracion = "Duracion is required"
+    errors.duracion = "Duracion es reequerida"
   }
   return errors
 }
@@ -34,7 +34,7 @@ function Formulario({setLoading}) {
     temporada: "",
     countries: [],
   });
-  console.log(input);
+ 
 
   const handleInputChange = function (e) {
     setInput({
@@ -54,6 +54,8 @@ function Formulario({setLoading}) {
       countries: [...input.countries, e.target.value],
     });
   };
+  
+  //Se usa para la dificultad y la temporada
   const handleSelect = function (e) {
     setInput({
       ...input,
@@ -123,19 +125,19 @@ function Formulario({setLoading}) {
               DIFICULTAD...
             </option>
             <option name="dificultad" value="1">
-              Muy facil
+              Muy Facil / 1
             </option>
             <option name="dificultad" value="2">
-              facil
+              Facil / 2
             </option>
             <option name="dificultad" value="3">
-              Intermedio
+              Intermedio / 3
             </option>
             <option name="dificultad" value="4">
-              Dificil
+              Dificil / 4
             </option>
             <option name="dificultad" value="5">
-              Muy Dificil
+              Muy Dificil / 5
             </option>
           </select>
         </p>

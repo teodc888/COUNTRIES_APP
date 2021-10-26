@@ -16,6 +16,16 @@ export function AllCountries() {
         dispatch({ type: ALL_COUNTRIES, payload: data });
       });
   };
+
+  // return async function (dispatch){
+  //   let json = await axios.get("http://localhost:3001/countries", {
+
+  //   });
+  //   return dispatch ({
+  //     type:  ALL_COUNTRIES,
+  //     payload: json.data
+  //   })
+  // }
 }
 export function AllActividades (){
   return function (dispatch) {
@@ -42,8 +52,7 @@ export function GetCountry (idPais) {
 export function PostActivity(payload){
   return async function(){
     const response = await axios.post("http://localhost:3001/activity", payload);
-    console.log(response)
-    console.log(payload)
+
     return response
   }
 }
