@@ -10,7 +10,7 @@ function Cards({currentPage, setCurrentPage}) {
   const countries = useSelector((state) => state.countries);
   // Pagina actual
   // const[currentPage, setCurrentPage] = useState(1);
-  // cantidad de estados que tengo por pagina
+  // cantidad de paises que tengo por pagina
   const[paisesPorPagina, setPaisesPorPagina]= useState(10);
   // seteo el index del ultimo pais
   const indeceDelUltimoPais = currentPage * paisesPorPagina // 10

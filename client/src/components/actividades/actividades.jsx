@@ -7,10 +7,10 @@ import { Link, useHistory } from "react-router-dom";
 function Actividades({setLoading}) {
   const dispatch = useDispatch();
   const history = useHistory();
-  const actividades = useSelector((state) => state.actividades);
   useEffect(() => {
       dispatch(AllActividades());
     }, [dispatch]);
+  const actividades = useSelector((state) => state.actividades);
 
     function handleClick(e){
       e.preventDefault(e);

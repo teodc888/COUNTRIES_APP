@@ -43,7 +43,7 @@ function rootReducer(state = inicialState, action) {
   if(action.type === FILTER_BY_NOM){
     let sortedArr = action.payload === "AZ" ? 
     state.countries.sort(function (a, b){
-      // El sort compara dos valores y  los pone a la derecha o a la izquierda dependiendo de si son mas grandes o mas chicos 1 0 -1
+      // El sort compara dos valores y  los pone a la derecha o a la izquierda dependiendo de si son mas grandes o mas chicos -1 0 1
       if(a.name > b.name){
         return 1;
       }

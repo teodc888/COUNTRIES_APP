@@ -1,6 +1,6 @@
 import "./formulario.css";
-import React, { useState, useEffect } from "react";
-import { PostActivity, AllCountries } from "../../redux/actions";
+import React, { useState } from "react";
+import { PostActivity} from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 
@@ -10,7 +10,7 @@ function validate(input) {
     errors.name = "Nombre es requerido";
   }
   if (!input.duracion){
-    errors.duracion = "Duracion es reequerida"
+    errors.duracion = "Duracion es requerida"
   }
   return errors
 }
@@ -20,11 +20,6 @@ function Formulario({setLoading}) {
 
   const countries = useSelector((state) => state.countries);
   const dispatch = useDispatch();
-
-
-  useEffect(() => {
-    dispatch(AllCountries());
-  }, [dispatch]);
 
   const [errors, setErrors] = useState({})
   const [input, setInput] = useState({
@@ -86,12 +81,11 @@ function Formulario({setLoading}) {
 
   return (
     <div className="contenedorForm">
-      <h1>CREAR FORMULARIO</h1>
-
-      <label className="labelPais">Pais</label>
+      <h1>CREAR FORMULARIO</h1>    
+      <label className="labelNombre">PAISES</label>
       <form onSubmit={(e) => handleSubmit(e)}>
-        <select onChange={(e) => handleSelectCountries(e)} className="select">
-          <option>PAISES...</option>
+        <select onChange={(e) => handleSelectCountries(e)} className="select" required="required" >
+          <option value="">PAISES...</option>
           {countries.map((el) => {
             return (
                 <option key={el.id} name="pais" value={el.id}>
@@ -110,6 +104,7 @@ function Formulario({setLoading}) {
           name="name"
           type="text"
           placeholder="Nombre..."
+          required="required"
           value={input.name}
           onChange={handleInputChange}
         />
@@ -120,8 +115,9 @@ function Formulario({setLoading}) {
             onChange={(e) => handleSelect(e)}
             name="dificultad"
             className="select"
+            required="required"
           >
-            <option>
+            <option value="">
               DIFICULTAD...
             </option>
             <option name="dificultad" value="1">
@@ -153,6 +149,7 @@ function Formulario({setLoading}) {
           min="1"
           placeholder="Duracion..."
           value={input.duracion}
+          required="required"
           onChange={handleInputChange}
         />
 
@@ -163,8 +160,9 @@ function Formulario({setLoading}) {
             onChange={(e) => handleSelect(e)}
             name="temporada"
             className="select"
+            required="required"
           >
-            <option>
+            <option value="">
               TEMPORADA...
             </option>
             <option name="temporada" value="Verano">
