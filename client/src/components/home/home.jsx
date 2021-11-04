@@ -23,8 +23,9 @@ function Home() {
     dispatch(AllCountries());
     const interval = setInterval(() => {
       setLoading(false)
-    },4000);
+    },4500);
     return () => {clearInterval(interval)};
+
   }, [dispatch]);
   
 

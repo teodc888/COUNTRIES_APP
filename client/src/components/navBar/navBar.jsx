@@ -39,7 +39,9 @@ function NavBar({ setCurrentPage, setOrden}) {
   return (
     <>
       <nav className="navBar">
-        <img className="imagenBar" alt="imagen" src={Imgen} />
+        <Link to="/">
+          <img className="imagenBar" alt="imagen" src={Imgen} />
+        </Link>
         <span className="nameBar">DellAcquasCountries</span>
         <span className="buscadorBar">
           <p>BUSCADOR</p>

@@ -28,9 +28,9 @@ function Actividades({setLoading}) {
                 return(
                     <div  className="contenedorActividades" key={actividades.id}>
                         <h1 className="tituloAc">{actividades.name}</h1>
-                        <h2>Dificultad: {actividades.dificultad}</h2>
-                        <h3>Duracion: {actividades.duracion} minutos</h3>
-                        <h3>Temporada: {actividades.temporada}</h3>
+                        <h2>DIFICULTAD: {actividades.dificultad}</h2>
+                        <h3>DURACION: {actividades.duracion} minutos</h3>
+                        <h3>TEMPORADA: {actividades.temporada}</h3>
                         <h3 className="nameAc">{actividades.countries.map((el) => el.name + " . ")}</h3>
                   
 

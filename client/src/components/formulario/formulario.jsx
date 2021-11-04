@@ -4,6 +4,7 @@ import { PostActivity} from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 
+
 function validate(input) {
   let errors = {};
   if (!input.name) {
@@ -19,6 +20,7 @@ function Formulario({setLoading}) {
   const history = useHistory();
 
   const countries = useSelector((state) => state.countries);
+
   const dispatch = useDispatch();
 
   const [errors, setErrors] = useState({})
@@ -78,11 +80,11 @@ function Formulario({setLoading}) {
     history.push("/home");
   
   }
-
+  
   return (
     <div className="contenedorForm">
       <h1>CREAR FORMULARIO</h1>    
-      <label className="labelNombre">PAISES</label>
+      <label className="label">PAISES</label>
       <form onSubmit={(e) => handleSubmit(e)}>
         <select onChange={(e) => handleSelectCountries(e)} className="select" required="required" >
           <option value="">PAISES...</option>
@@ -93,10 +95,12 @@ function Formulario({setLoading}) {
                 </option>
             );
           })}
-        </select>    
+        </select> 
+        
+ 
        { errors.name ? <label className="error"> {errors.name} </label>:
        
-       <label className="labelNombre">Nombre</label>
+       <label className="label">Nombre</label>
        
        }
         <input
@@ -109,7 +113,7 @@ function Formulario({setLoading}) {
           onChange={handleInputChange}
         />
 
-        <label className="labelDificultad">Dificultad</label>
+        <label className="label">Dificultad</label>
         <p>
           <select
             onChange={(e) => handleSelect(e)}
@@ -140,7 +144,7 @@ function Formulario({setLoading}) {
 
         {
           errors.duracion ?  <label className="error"> {errors.duracion} </label> :
-          <label className="labelDuracion">Duracion En Minutos</label>
+          <label className="label">Duracion En Minutos</label>
           }
         <input
           className="inputs"
@@ -154,7 +158,7 @@ function Formulario({setLoading}) {
         />
 
 
-        <label className="labelTempora">Temporada</label>
+        <label className="label">Temporada</label>
         <p>
           <select
             onChange={(e) => handleSelect(e)}

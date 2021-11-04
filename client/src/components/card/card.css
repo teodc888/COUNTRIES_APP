@@ -39,5 +39,6 @@
     width: 220px;
     height: 136px;
     margin: auto;
+    transition: transform .2s;
   
 }

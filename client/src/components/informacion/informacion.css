@@ -36,32 +36,33 @@
     font-size: 30px;
     text-transform: uppercase;
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    margin-bottom: 30px;
+    margin-bottom: 70px;
 }
 .continenteInfo{
-    display: block;
-    margin-right: 730px;
-    font-size: 25px;
-    text-transform: uppercase;
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    margin-bottom: 50px;
-}
-.subinfo{
     display: block;
     margin-right: 730px;
     font-size: 20px;
     text-transform: uppercase;
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    margin-bottom: 65px;
+    margin-bottom: 70px;
+}
+.subinfo{
+    display: block;
+    margin-right: 730px;
+    font-size: 23px;
+    text-transform: uppercase;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-bottom: 70px;
 }
 .imageninfo{
     display: flex;
     float: right;
+    margin-top: 250px;
     width: 450px;
     height: 300px;
     margin-right: 130px;
-    flex-wrap: wrap;
-    justify-content: center;
+
+
     
     
 
@@ -73,7 +74,7 @@
     font-size: 20px;
     text-transform: uppercase;
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
 }
 .poblacioninfo{
     display: block;
@@ -81,7 +82,7 @@
     font-size: 20px;
     text-transform: uppercase;
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
 }
 .botoninfo{
     display: block;
@@ -104,7 +105,7 @@
     font-size: 20px;
     text-transform: uppercase;
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    margin-bottom: 10px;
+    margin-bottom: 70px;
 }
 
 .nameActividad{
@@ -115,4 +116,15 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+}
+.crearActividad1{
+    font-size: 20px;
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:20px;
+    padding-right:20px;
+    border-style: solid;
+    border-radius:50px;
+ 
+    background-color:#bf97ff;
 }
