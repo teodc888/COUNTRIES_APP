@@ -10,9 +10,9 @@ Con esta App podrás buscar todo tipo de paises y agregarle actividades a cada u
 
 # Instalation::wrench:
 📝 npm install en el front y back
-- ACLARACION:
+# ACLARACION:
 En api crear un archivo llamado .env con esta forma:
-DB_USER = postgressUser DB_PASSWORD = postgressPassword DB_HOST = localhost
+- DB_USER = postgressUser DB_PASSWORD = postgressPassword DB_HOST = localhost
 
 Reemplace postgressUser y postgressPassword por sus propias credenciales para conectarse a postgress. Este archivo se ignorará en la carga a github, ya que contiene información confidencial (credenciales)
 
