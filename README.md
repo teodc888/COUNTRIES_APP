@@ -8,7 +8,7 @@
 
 Con esta App podrás buscar cualquier PAIS del mundo, ver su informacion mas importante y agregarle actividades a cada uno de ellos!!!
 
-# Instalation::wrench:
+# INSTALACION ::wrench:
 📝 npm install en el front y back
 # ACLARACION:
 En api crear un archivo llamado .env con esta forma:
@@ -18,7 +18,7 @@ Reemplace postgressUser y postgressPassword por sus propias credenciales para co
 
 Además de eso, necesitará crear desde psql una base de datos llamada countries usando el comando create database countries;
 
-# Technologies: :computer:
+# TECNOLOGIAS: :computer:
 
 Javascript.
 
