@@ -6,7 +6,7 @@
 </p>
 
 
-<h1>Con esta App podrás buscar cualquier PAIS del mundo, ver su informacion mas importante y agregarle actividades a cada uno de ellos!!!</h1>
+<p>Con esta App podrás buscar cualquier PAIS del mundo, ver su informacion mas importante y agregarle actividades a cada uno de ellos!!!</p>
 
 # INSTALACION ::wrench:
 📝 npm install en el front y back
